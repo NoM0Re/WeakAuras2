@@ -1,13 +1,10 @@
-## Interface: 30405, 38000
-## Title: WeakAuras Options
+## Title: |cFF00BFFF[Barney]|r WeakAuras Options - Update for Titan Forged Classic
+## Title-zhCN: |cFF00BFFF[巴尼]|r WeakAuras Options 时光服探索版
 ## Author: The WeakAuras Team
-## Version: @project-version@
+## Version: 巴尼时光服探索版 25112601
+## Interface: 38000
 ## Notes: Options for WeakAuras
-## Notes-esES: Opciones para WeakAuras
-## Notes-esMX: Opciones para WeakAuras
-## Notes-deDE: Optionen für WeakAuras
-## Notes-ruRU: Опции WeakAuras
-## Notes-zhTW: WeakAuras的設定
+## Notes-zhCN: WeakAuras的设置
 ## X-Category: Interface Enhancements
 ## Globe-Main: WeakAuras
 ## DefaultState: Enabled

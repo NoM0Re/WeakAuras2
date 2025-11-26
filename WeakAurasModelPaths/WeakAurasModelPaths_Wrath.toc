@@ -1,13 +1,10 @@
-## Interface: 30405, 38000
-## Title: WeakAuras Model Paths
+## Title: |cFF00BFFF[Barney]|r WeakAuras Model Paths - Update for Titan Forged Classic
+## Title-zhCN: |cFF00BFFF[巴尼]|r WeakAuras Model Paths 时光服探索版
 ## Author: The WeakAuras Team
-## Version: @project-version@
+## Version: 巴尼时光服探索版 25112601
+## Interface: 38000
 ## Notes: Model paths for WeakAuras
-## Notes-esES: Las rutas de modelos para WeakAuras
-## Notes-esMX: Las rutas de modelos para WeakAuras
-## Notes-deDE: 3D-Model Pfade für WeakAuras
-## Notes-ruRU: Ссылки на файлы моделей WeakAuras
-## Notes-zhTW: WeakAuras的模組路徑
+## Notes-zhCN: WeakAuras的模型路径
 ## X-Category: Interface Enhancements
 ## Globe-Main: WeakAuras
 ## DefaultState: Enabled

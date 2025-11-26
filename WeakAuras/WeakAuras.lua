@@ -61,6 +61,7 @@ function Private.callbacks:Fire(event, ...)
   end
 end
 
+-- Barney
 function WeakAurasTimers:ScheduleTimerFixed(func, delay, ...)
   if (delay < Private.maxTimerDuration) then
     if delay + GetTime() > maxUpTime then
@@ -1712,7 +1713,7 @@ local function scanForLoadsImpl(toCheck, event, arg1, ...)
   if WeakAuras.IsCataOrMistsOrRetail() then
     specId, role, position = Private.LibSpecWrapper.SpecRolePositionForUnit("player")
   end
-  if WeakAuras.IsMistsOrRetail() then
+  if WeakAuras.IsWrathOrMistsOrRetail() then
     inPetBattle = C_PetBattles.IsInBattle()
   end
   if WeakAuras.IsRetail() then
@@ -1746,7 +1747,7 @@ local function scanForLoadsImpl(toCheck, event, arg1, ...)
 
   local pvp = false
   if WeakAuras.IsWrathClassic() then
-    pvp = UnitIsPVPFreeForAll("player") or UnitIsPVP("player")
+    pvp = UnitIsPVP("player")
   end
 
   local changed = 0;
@@ -1764,8 +1765,8 @@ local function scanForLoadsImpl(toCheck, event, arg1, ...)
         shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", inCombat, alive, inEncounter, vehicle, mounted, hardcore, runeEngraving, class, player, realm, guild, race, faction, playerLevel, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size)
         couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   inCombat, alive, inEncounter, vehicle, mounted, hardcore, runeEngraving, class, player, realm, guild, race, faction, playerLevel, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size)
       elseif WeakAuras.IsWrathClassic() then
-        shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", inCombat, alive, inEncounter, pvp, vehicle, vehicleUi, mounted, class, player, realm, guild, race, faction, playerLevel, role, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
-        couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   inCombat, alive, inEncounter, pvp, vehicle, vehicleUi, mounted, class, player, realm, guild, race, faction, playerLevel, role, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
+        shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", inCombat, alive, inEncounter, pvp, inPetBattle, vehicle, vehicleUi, mounted, class, player, realm, guild, race, faction, playerLevel, role, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
+        couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   inCombat, alive, inEncounter, pvp, inPetBattle, vehicle, vehicleUi, mounted, class, player, realm, guild, race, faction, playerLevel, role, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
       elseif WeakAuras.IsCataClassic() then
         shouldBeLoaded = loadFunc and loadFunc("ScanForLoads_Auras", inCombat, alive, inEncounter, vehicle, vehicleUi, mounted, class, specId, player, realm, guild, race, faction, playerLevel, role, position, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
         couldBeLoaded =  loadOpt and loadOpt("ScanForLoads_Auras",   inCombat, alive, inEncounter, vehicle, vehicleUi, mounted, class, specId, player, realm, guild, race, faction, playerLevel, role, position, raidRole, group, groupSize, raidMemberType, zone, zoneId, zonegroupId, instanceId, minimapText, encounter_id, size, difficulty, difficultyIndex)
@@ -2442,9 +2443,9 @@ StaticPopupDialogs["WEAKAURAS_CONFIRM_REPAIR"] = {
     local ManualRepairText = L["Are you sure you want to run the |cffff0000EXPERIMENTAL|r repair tool?\nThis will overwrite any changes you have made since the last database upgrade.\nLast upgrade: %s"]
 
     if self.data.reason == "user" then
-      self.text:SetText(ManualRepairText:format(LastUpgrade()))
+      self.Text:SetText(ManualRepairText:format(LastUpgrade()))
     else
-      self.text:SetText(AutomaticRepairText:format(LastUpgrade()))
+      self.Text:SetText(AutomaticRepairText:format(LastUpgrade()))
     end
   end,
   OnCancel = function(self)
@@ -2459,6 +2460,7 @@ StaticPopupDialogs["WEAKAURAS_CONFIRM_REPAIR"] = {
 }
 
 function Private.ValidateUniqueDataIds(silent)
+  -- Barney
   -- ensure that there are no duplicated uids anywhere in the database
   local seenUIDs = {}
   for _, data in pairs(db.displays) do

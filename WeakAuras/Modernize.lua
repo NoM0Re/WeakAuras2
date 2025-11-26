@@ -12,6 +12,10 @@ local L = WeakAuras.L
 --- Modernizes the aura data
 ---@param data auraData
 function Private.Modernize(data, oldSnapshot)
+  if data.internalVersion == 100 then
+    data.internalVersion = 73
+  end
+
   if not data.internalVersion or data.internalVersion < 2 then
     WeakAuras.prettyPrint(string.format("Data for '%s' is too old, can't modernize.", data.id))
     data.internalVersion = 2

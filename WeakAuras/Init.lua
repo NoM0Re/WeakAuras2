@@ -381,8 +381,8 @@ WeakAuras.normalWidth = 1.3
 WeakAuras.halfWidth = WeakAuras.normalWidth / 2
 WeakAuras.doubleWidth = WeakAuras.normalWidth * 2
 local versionStringFromToc = C_AddOns.GetAddOnMetadata("WeakAuras", "Version")
-local versionString = "@project-version@"
-local buildTime = "@build-time@"
+local versionString = "6.0.0"
+local buildTime = "20251126010600"
 
 local flavorFromToc = C_AddOns.GetAddOnMetadata("WeakAuras", "X-Flavor")
 local flavorFromTocToNumber = {
@@ -402,7 +402,7 @@ else
 end
 
 --@alpha@
-WeakAuras.buildType = "alpha"
+WeakAuras.buildType = "release"
 --@end-alpha@
 
 --@experimental@
@@ -410,7 +410,7 @@ WeakAuras.buildType = "pr"
 --@end-experimental@
 
 --@debug@
-if versionStringFromToc == "@project-version@" then
+if versionStringFromToc == "6.0.0" then
   versionStringFromToc = "Dev"
   buildTime = "Dev"
   WeakAuras.buildType = "dev"
@@ -491,6 +491,11 @@ end
 ---@return boolean result
 function WeakAuras.IsWrathOrCataOrMists()
   return WeakAuras.IsWrathClassic() or WeakAuras.IsCataClassic() or WeakAuras.IsMists()
+end
+
+---@return boolean result
+function WeakAuras.IsWrathOrCataOrRetail()
+  return WeakAuras.IsRetail() or WeakAuras.IsWrathClassic() or WeakAuras.IsCataClassic()
 end
 
 ---@return boolean result
@@ -622,11 +627,7 @@ if not libsAreOk then
   end)
 end
 
-if WeakAuras.IsWrathClassic() then
-  C_Timer.After(1, function()
-    WeakAuras.prettyPrint("This version of WeakAuras is provided as is. We are unable to test it ourselves on CN Servers.")
-  end)
-elseif WeakAuras.IsMidnight() then
+if WeakAuras.IsMidnight() then
   C_Timer.After(1, function()
     WeakAuras.prettyPrint("WeakAuras does not support Midnight due to Blizzard restricting addons. Read more at https://patreon.com/WeakAuras")
   end)

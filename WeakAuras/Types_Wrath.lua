@@ -14,7 +14,7 @@ function Private.InitializeEncounterAndZoneLists()
     return
   end
   local raids = {
-    {
+--[[{
       L["Vault of Archavon"],
       {
         { L["Archavon the Stone Watcher"], 772 },
@@ -133,7 +133,7 @@ function Private.InitializeEncounterAndZoneLists()
         { L["Saviana Ragefire"], 891 },
         { L["Halion"], 887 },
       }
-    },
+    },]]
   }
   for _, raid in ipairs(raids) do
     encounter_list = ("%s|cffffd200%s|r\n"):format(encounter_list, raid[1])

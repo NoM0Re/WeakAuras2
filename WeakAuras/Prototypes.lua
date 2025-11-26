@@ -1402,7 +1402,7 @@ Private.load_prototype = {
       name = "petbattle",
       display = L["In Pet Battle"],
       type = "tristate",
-      init = WeakAuras.IsMistsOrRetail() and "arg" or nil,
+      init = WeakAuras.IsWrathOrMistsOrRetail() and "arg" or nil,
       width = WeakAuras.normalWidth,
       optional = true,
       enable = WeakAuras.IsWrathOrMistsOrRetail(),
@@ -1797,7 +1797,7 @@ Private.load_prototype = {
       hidden = not WeakAuras.IsRetail(),
       events = {"PLAYER_PVP_TALENT_UPDATE"}
     },
-    {
+    --[[{
       name = "glyph",
       display = L["Glyph"],
       type = "multiselect",
@@ -1807,7 +1807,7 @@ Private.load_prototype = {
       test = "WeakAuras.IsGlyphActive(%s)",
       events = {"GLYPH_ADDED", "GLYPH_REMOVED", "GLYPH_UPDATED", "USE_GLYPH"},
       enable = WeakAuras.IsMists(),
-    },
+    },]]
     {
       name = "spellknown",
       display = L["Spell Known"],
@@ -11016,8 +11016,7 @@ Private.event_prototypes = {
         name = "resiliencerating",
         display = L["Resilience Rating"],
         type = "number",
-        init = WeakAuras.IsWrathClassic() and "GetCombatRating(CR_RESILIENCE_PLAYER_DAMAGE_TAKEN)"
-                or "GetCombatRating(COMBAT_RATING_RESILIENCE_PLAYER_DAMAGE_TAKEN)",
+        init = "GetCombatRating(CR_RESILIENCE_PLAYER_DAMAGE_TAKEN)",
         store = true,
         enable = WeakAuras.IsWrathOrCataOrMists(),
         conditionType = "number",
@@ -11031,8 +11030,7 @@ Private.event_prototypes = {
         name = "resiliencepercent",
         display = L["Resilience (%)"],
         type = "number",
-        init = WeakAuras.IsWrathClassic() and "GetCombatRatingBonus(CR_RESILIENCE_PLAYER_DAMAGE_TAKEN)"
-                or "GetCombatRatingBonus(COMBAT_RATING_RESILIENCE_PLAYER_DAMAGE_TAKEN)",
+        init = "GetCombatRatingBonus(CR_RESILIENCE_PLAYER_DAMAGE_TAKEN)",
         store = true,
         enable = WeakAuras.IsWrathOrCataOrMists(),
         conditionType = "number",

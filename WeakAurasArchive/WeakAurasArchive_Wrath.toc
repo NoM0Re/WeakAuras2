@@ -1,0 +1,9 @@
+## Title: |cFF00BFFF[Barney]|r WeakAuras Archive - Update for Titan Forged Classic
+## Title-zhCN: |cFF00BFFF[巴尼]|r WeakAuras Archive 时光服探索版
+## Author: The WeakAuras Team
+## Version: 巴尼时光服探索版 25112601
+## Interface: 38000
+## LoadOnDemand: 1
+## SavedVariables: WeakAurasArchive
+## Dependencies: WeakAuras
+## AllowLoadGameType: wrath, titan

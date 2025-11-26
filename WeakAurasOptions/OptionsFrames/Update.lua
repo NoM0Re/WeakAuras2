@@ -1404,7 +1404,7 @@ local methods = {
         end
       end
 
-      if (highestVersion > WeakAuras.InternalVersion()) then
+      --[[if (highestVersion > WeakAuras.InternalVersion()) then
         local highestVersionWarning = AceGUI:Create("Label")
         highestVersionWarning:SetFontObject(GameFontHighlight)
         highestVersionWarning:SetFullWidth(true)
@@ -1415,9 +1415,9 @@ local methods = {
         self.viewCodeButton:Hide()
         self:DoLayout()
         return
-      else
+      else]]
         self.importButton:Show()
-      end
+      --end
     end
 
     local matchInfoResult = AceGUI:Create("Label")
@@ -1428,6 +1428,7 @@ local methods = {
     local matchInfo, errorMessage = MatchInfo(data, children, target)
     self.matchInfo = matchInfo
 
+    -- Barney
     -- Cases:
     -- No match => Import
     -- Match, but no difference => Import as Copy

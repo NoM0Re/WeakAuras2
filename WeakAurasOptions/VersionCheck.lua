@@ -5,7 +5,7 @@ local Private = select(2, ...)
 
 local L = WeakAuras.L
 
-local optionsVersion = "@project-version@"
+local optionsVersion = "6.0.0"
 --@debug@
 optionsVersion = "Dev"
 --@end-debug@

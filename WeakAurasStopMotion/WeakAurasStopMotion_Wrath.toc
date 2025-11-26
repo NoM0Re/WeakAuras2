@@ -1,0 +1,13 @@
+## Title: |cFF00BFFF[Barney]|r WeakAuras Stop Motion Textures - Update for Titan Forged Classic
+## Title-zhCN: |cFF00BFFF[巴尼]|r WeakAuras Stop Motion Textures 时光服探索版
+## Author: Infus
+## Version: 巴尼时光服探索版 25112601
+## Interface: 38000
+## Notes: Textures for WeakAuras Stop Motion
+## Notes-zhCN: WeakAuras的定格动画材质
+## IconTexture: Interface\AddOns\WeakAurasStopMotion\icon.blp
+## X-Category: Interface Enhancements
+## DefaultState: Enabled
+## Dependencies: WeakAuras, WeakAurasOptions
+
+StopMotionTextures.lua
